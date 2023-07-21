@@ -1,9 +1,12 @@
+import requests
+from string import Template
+
 DICTIONARY_URL = Template("https://www.dictionaryapi.com/api/v3/references/collegiate/json/$word?key=$key")
 THESAURUS_URL = Template("https://www.dictionaryapi.com/api/v3/references/thesaurus/json/$word?key=$key")
 ERROR_MSG = Template("Error: $error")
 SEPARATOR = "------------"
-DICTIONARY_API_KEY = "" #Enter dictionary API key from Merriam-Webster's developer center
-THESAURAUS_API_KEY = "" #Enter thesaurus API key from Merriam-Webster's developer center
+DICTIONARY_API_KEY = "" #Enter dictionary API key from Merriam-Webster's developer center (https://dictionaryapi.com/)
+THESAURAUS_API_KEY = "" #Enter thesaurus API key from Merriam-Webster's developer center (https://dictionaryapi.com/)
 
 def handle_error(err):
     print(ERROR_MSG.substitute(error = err))
