@@ -13,7 +13,6 @@ def handle_error(err):
     print(SEPARATOR)
 
 while True:
-
     word = input("Enter a word to look up: ")
     definitionRes = requests.get(DICTIONARY_URL.substitute(word = word, key = DICTIONARY_API_KEY)).json()
     try:
@@ -22,11 +21,7 @@ while True:
         for d in definitions:
             print(d)
         print()
-    except Exception as err:
-        handle_error(err)
-        continue
 
-    try: 
         thesaurusRes = requests.get(THESAURUS_URL.substitute(word = word, key = THESAURAUS_API_KEY)).json()
         synonyms = thesaurusRes[0]["meta"]["syns"]
         print("Synonyms for " + word + ":")
